@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.0.2)
+  - SwiftOverlays (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0)
+  - SwiftOverlays (~> 5.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - SwiftOverlays
+
+SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
+
+PODFILE CHECKSUM: 9aeed0749f96f870a39fbb7e15ceaa7221b00c19
+
+COCOAPODS: 1.9.1
