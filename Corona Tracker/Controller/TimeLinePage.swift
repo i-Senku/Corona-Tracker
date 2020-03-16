@@ -124,6 +124,7 @@ extension TimeLinePage : UITableViewDelegate,UITableViewDataSource{
         cell.dateText.text = timeLineList[indexPath.section].sectionData[indexPath.row].description!
         cell.viewIcon.image = UIImage(systemName: "arrowshape.turn.up.right.fills")
         cell.viewIcon.tintColor = .darkGray
+        cell.selectionStyle = .none
         return cell
     }
     

@@ -68,7 +68,7 @@ final class StatisticsPage: UIViewController {
     let confirmedDetail : UILabel = {
        let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.text = "Confirmed"
+        view.text = "Cases"
         view.font = .monospacedSystemFont(ofSize: 13, weight: .medium)
         return view
     }()
@@ -91,8 +91,8 @@ final class StatisticsPage: UIViewController {
     
     // *----------------------------------END----------------------------------------- * //
     
-    var countryList : [String] = [String]()
-    var searchCountryList : [String] = [String]()
+    var countryList : [Countries] = [Countries]()
+    var searchCountryList : [Countries] = [Countries]()
     var isSearch : Bool = false
     
 
@@ -111,6 +111,7 @@ final class StatisticsPage: UIViewController {
 
         setupView()
         fetchData()
+        fetchCountries()
     
     }
 }
@@ -171,7 +172,7 @@ extension StatisticsPage {
         
         NSLayoutConstraint.activate([
             //stack.heightAnchor.constraint(equalToConstant: 50),
-            stack.bottomAnchor.constraint(equalTo: headerCard.bottomAnchor,constant: -60),
+            stack.bottomAnchor.constraint(equalTo: headerCard.bottomAnchor,constant: -65),
             stack.leadingAnchor.constraint(equalTo: headerCard.leadingAnchor,constant: 10),
             stack.trailingAnchor.constraint(equalTo: headerCard.trailingAnchor,constant: -10)
         ])
@@ -193,7 +194,7 @@ extension StatisticsPage : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryPage") as! CountryCell
-        cell.countryLabel.text = isSearch ? searchCountryList[indexPath.row] : countryList[indexPath.row]
+        cell.countryLabel.text = isSearch ? searchCountryList[indexPath.row].country : countryList[indexPath.row].country
         cell.viewIcon.image = UIImage(systemName: "arrowtriangle.right.fill")
         cell.viewIcon.tintColor = .darkGray
         return cell
@@ -202,9 +203,9 @@ extension StatisticsPage : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailsPage()
         if isSearch {
-            vc.countryName = searchCountryList[indexPath.row]
+            vc.countryName = searchCountryList[indexPath.row].country
         }else{
-            vc.countryName = countryList[indexPath.row]
+            vc.countryName = countryList[indexPath.row].country
         }
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -221,7 +222,7 @@ extension StatisticsPage : UISearchBarDelegate {
         }else{
             isSearch = true
             searchCountryList = countryList.filter { (text) -> Bool in
-                return text.lowercased().contains(searchText.lowercased())
+                return text.country.lowercased().contains(searchText.lowercased())
             }
         }
         myTableView.reloadData()
@@ -239,21 +240,23 @@ extension StatisticsPage {
     fileprivate func fetchData(){
         showWaitOverlay()
         CoronaTrackerService.getData { (jsonData) in
-            let last = jsonData.lastUpdate
+            let last = Date(timeIntervalSince1970: TimeInterval(jsonData.updated) / 1000)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy hh:mm"
             
-            self.confirmedText.text = String(jsonData.confirmed.value)
-            self.deathsText.text = String(jsonData.deaths.value)
-            self.recoveredText.text = String(jsonData.recovered.value)
-            self.latestUpdated.text = "Last Update : \(last)"
-            
-            for (key,_) in Countries.countries {
-                self.countryList.append(key)
-            }
-            self.countryList = self.countryList.sorted()
-            self.myTableView.reloadData()
-            
+            self.confirmedText.text = String(jsonData.cases)
+            self.deathsText.text = String(jsonData.deaths)
+            self.recoveredText.text = String(jsonData.recovered)
+            self.latestUpdated.text = "Last Update : " + dateFormatter.string(from: last)
             
             self.removeAllOverlays()
+        }
+    }
+    
+    fileprivate func fetchCountries(){
+        CoronaTrackerService.getCountry { (countries) in
+            self.countryList = countries
+            self.myTableView.reloadData()
         }
     }
     

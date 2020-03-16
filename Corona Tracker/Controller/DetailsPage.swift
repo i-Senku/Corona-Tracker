@@ -11,9 +11,9 @@ final class DetailsPage: UIViewController {
     }()
     
     var countryName : String?
-    let backgroundColorList = [UIColor.black,UIColor.red,#colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1)]
+    let backgroundColorList = [UIColor.black,#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1),#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)]
     var countList : [Int] = [Int]()
-    let efectName = ["CONFİRMED","DEATHS","RECOVERED"]
+    let efectName = ["CASES","DEATHS","RECOVERED"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,7 @@ extension DetailsPage : UITableViewDelegate,UITableViewDataSource{
         cell.countText.text = String(countList[indexPath.row])
         cell.card.backgroundColor = backgroundColorList[indexPath.row]
         cell.visualEfectText.text = efectName[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -61,7 +62,7 @@ extension DetailsPage {
     
     private func fetchData(name:String){
         CoronaTrackerService.getDetails(countryName: name, completionHandler: { json in
-            self.countList = [json.confirmed.value,json.deaths.value,json.recovered.value]
+            self.countList = [json.cases,json.deaths,json.recovered]
             self.myTableView.reloadData()
         })
     }

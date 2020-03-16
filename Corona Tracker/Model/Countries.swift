@@ -2,7 +2,15 @@
 
 import Foundation
 
-struct Countries {
+struct Countries: Codable {
+    let country: String
+    let cases, todayCases, deaths, todayDeaths: Int
+    let recovered, critical: Int
+}
+
+typealias Country = [Countries]
+
+/*struct Countries {
     static let countries = [
     "Afghanistan": "AF",
     "Aland Islands": "AX",
@@ -254,6 +262,6 @@ struct Countries {
     "Yemen": "YE",
     "Zambia": "ZM",
     "Zimbabwe": "ZW"
-    ]
+    ]*/
     
-}
+

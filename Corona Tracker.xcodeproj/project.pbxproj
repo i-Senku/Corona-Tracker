@@ -11,6 +11,9 @@
 		21F823D2B70F740CD72E4F58 /* Pods_Corona_Tracker_Corona_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA79D8DC32CBDB776DBE28E /* Pods_Corona_Tracker_Corona_TrackerUITests.framework */; };
 		E3A771BD5DDB1C2C578BE5CF /* Pods_Corona_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12EF9D42C177C8F742FAD150 /* Pods_Corona_Tracker.framework */; };
 		FE2530B7241E11DF00BB6515 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2530B6241E11DF00BB6515 /* Expandable.swift */; };
+		FE70A9B4241FECDA00498B01 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70A9B3241FECDA00498B01 /* News.swift */; };
+		FE70A9B6241FECF000498B01 /* NewsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70A9B5241FECF000498B01 /* NewsPage.swift */; };
+		FE70A9B8241FED9500498B01 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70A9B7241FED9500498B01 /* NewsCell.swift */; };
 		FEE7B8FA241D7899000C1347 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE7B8F9241D7899000C1347 /* AppDelegate.swift */; };
 		FEE7B8FC241D7899000C1347 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE7B8FB241D7899000C1347 /* SceneDelegate.swift */; };
 		FEE7B8FE241D7899000C1347 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE7B8FD241D7899000C1347 /* ViewController.swift */; };
@@ -62,6 +65,9 @@
 		D7DDE8040405C7CA1C5B5ED9 /* Pods-Corona Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Corona Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Corona Tracker/Pods-Corona Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		E2D3683D87816022346225FE /* Pods_Corona_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Corona_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2530B6241E11DF00BB6515 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
+		FE70A9B3241FECDA00498B01 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		FE70A9B5241FECF000498B01 /* NewsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPage.swift; sourceTree = "<group>"; };
+		FE70A9B7241FED9500498B01 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		FEE7B8F6241D7899000C1347 /* Corona Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Corona Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE7B8F9241D7899000C1347 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEE7B8FB241D7899000C1347 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 				FEE7B952241D7D5B000C1347 /* Details.swift */,
 				FEE7B954241D7D76000C1347 /* TimeLine.swift */,
 				FE2530B6241E11DF00BB6515 /* Expandable.swift */,
+				FE70A9B3241FECDA00498B01 /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +225,7 @@
 				FEE7B948241D7C7E000C1347 /* CountryCell.swift */,
 				FEE7B94A241D7CA2000C1347 /* DetailsPageCell.swift */,
 				FEE7B94C241D7CF3000C1347 /* TimeLineCell.swift */,
+				FE70A9B7241FED9500498B01 /* NewsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 				FEE7B940241D7BAB000C1347 /* MainTabBar.swift */,
 				FEE7B944241D7C12000C1347 /* StatisticsPage.swift */,
 				FEE7B946241D7C3A000C1347 /* TimeLinePage.swift */,
+				FE70A9B5241FECF000498B01 /* NewsPage.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -486,14 +495,17 @@
 				FEE7B93D241D7A44000C1347 /* CoronaMaps.swift in Sources */,
 				FEE7B94B241D7CA2000C1347 /* DetailsPageCell.swift in Sources */,
 				FEE7B904241D7899000C1347 /* Corona_Tracker.xcdatamodeld in Sources */,
+				FE70A9B4241FECDA00498B01 /* News.swift in Sources */,
 				FEE7B949241D7C7E000C1347 /* CountryCell.swift in Sources */,
 				FEE7B947241D7C3A000C1347 /* TimeLinePage.swift in Sources */,
 				FEE7B941241D7BAB000C1347 /* MainTabBar.swift in Sources */,
+				FE70A9B8241FED9500498B01 /* NewsCell.swift in Sources */,
 				FEE7B8FE241D7899000C1347 /* ViewController.swift in Sources */,
 				FEE7B94F241D7D1C000C1347 /* CoronaTracker.swift in Sources */,
 				FE2530B7241E11DF00BB6515 /* Expandable.swift in Sources */,
 				FEE7B93F241D7B82000C1347 /* DetailsPage.swift in Sources */,
 				FEE7B8FA241D7899000C1347 /* AppDelegate.swift in Sources */,
+				FE70A9B6241FECF000498B01 /* NewsPage.swift in Sources */,
 				FEE7B953241D7D5B000C1347 /* Details.swift in Sources */,
 				FEE7B8FC241D7899000C1347 /* SceneDelegate.swift in Sources */,
 				FEE7B951241D7D41000C1347 /* Countries.swift in Sources */,

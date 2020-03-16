@@ -5,6 +5,7 @@ final class MainTabBar: UITabBarController {
     let timeLinePage = TimeLinePage()
     let infoPage = StatisticsPage()
     let coron = CoronaMaps()
+    let news = NewsPage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,6 +13,7 @@ final class MainTabBar: UITabBarController {
         viewControllers = [
             createTabBar(title: "Home", image: "waveform.path.ecg", vc: infoPage),
             createTabBar(title: "Maps", image: "map", vc: coron),
+            createTabBar(title: "News", image: "pencil.and.outline", vc: news),
             createTabBar(title: "Time Line", image: "pencil.and.outline", vc: timeLinePage)
         ]
         
